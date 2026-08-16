@@ -1,0 +1,7 @@
+google-cloud-bigquery
+google-auth
+db-dtypes
+pandas
+faker
+python-dotenv
+pyarrow

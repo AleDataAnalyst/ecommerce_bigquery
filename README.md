@@ -4,9 +4,26 @@ Proyecto analítico de ingeniería de datos para la gestión y modelado de un e-
 
 ---
 
+## Arquitectura de Datos
+
+El diseño de nuestra base de datos sigue un modelo relacional en 3NF para garantizar la integridad y eficiencia de los datos en BigQuery.
+
+### Diagrama Entidad-Relación (ERD)
+
+![Diagrama de Base de Datos](docs/diagramabigquery.jpg)
+
+El esquema actual comprende las siguientes entidades:
+
+- **Categorías y Productos**: Gestión de inventario.
+- **Clientes**: Datos demográficos y canales de adquisición.
+- **Órdenes y Detalles**: Registro transaccional completo.
+- **Pagos y Reseñas**: Seguimiento financiero y feedback.
+
+---
+
 ## 📂 Estructura del Repositorio
 
-````text
+```text
 ecommerce_bigquery/
 ├── credentials/
 │   └── service-account.json  # (Ignorado por Git) Credenciales de GCP
@@ -25,9 +42,10 @@ ecommerce_bigquery/
 ├── README.md
 ├── requirements.txt
 └── seed.py                   # Script maestro de inicialización
-
+```
 
 ## 📐 Modelo de Datos (3NF)
+
 El modelo consta de 7 tablas normalizadas para evitar redundancias y anomalías de actualización:
 
 categories: Categorías de productos.
@@ -44,17 +62,18 @@ payments: Transacciones de pago asociadas a los pedidos.
 
 reviews: Valoraciones de productos entregados.
 
-(Ver diagrama completo en docs/er_diagram.png)
+(Ver diagrama completo en docs/diagramabigquery.jpg)
 
 ## ⚙️ Configuración e Instalación
 
 1. Clonar el repositorio y crear entorno virtual
+
 ```powershell
 git clone [https://github.com/AleDataAnalyst/ecommerce_bigquery.git](https://github.com/AleDataAnalyst/ecommerce_bigquery.git)
 cd ecommerce_bigquery
 python -m venv venv
 .\venv\Scripts\Activate.ps1
-````
+```
 
 2. Instalar dependencias
 
@@ -86,17 +105,4 @@ Para ejecutar las métricas y validaciones del negocio sobre BigQuery:
 
 ```powershell
 python src/queries.py
-```
-
----
-
-### Siguientes pasos en tu terminal (Git):
-
-Una vez tengas añadidos el diagrama en `docs/` y el `README.md`, no olvides hacer commit y push a tu rama `dev`:
-
-```powershell
-git add .
-git commit -m "docs: añadir diagrama ER y README completo del proyecto"
-git push origin dev
-¡Con esto tienes una entrega totalmente profesional, limpia y estructurada de principio a fin!
 ```
